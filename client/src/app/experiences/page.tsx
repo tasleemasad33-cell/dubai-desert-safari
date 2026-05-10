@@ -21,7 +21,7 @@ const ExperiencesPage = () => {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const response = await fetch(`\${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/tours?type=experience`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/tours?type=experience`);
         if (response.ok) {
           const data = await response.json();
           setExperiences(data);

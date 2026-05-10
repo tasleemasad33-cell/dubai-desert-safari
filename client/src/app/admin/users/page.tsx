@@ -26,7 +26,7 @@ const AdminUsers = () => {
     const fetchUsers = async () => {
       try {
         // Assuming there's a /api/users endpoint for admins
-        const response = await fetch(`\${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/users`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/users`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

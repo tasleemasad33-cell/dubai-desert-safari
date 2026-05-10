@@ -25,7 +25,7 @@ const AdminBookings = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch(`\${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/bookings/all`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/bookings/all`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
