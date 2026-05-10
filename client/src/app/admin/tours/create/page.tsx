@@ -40,7 +40,7 @@ export default function CreateTour() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/tours`, {
+      const response = await fetch(`https://server-one-alpha-61.vercel.app/api/tours`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
