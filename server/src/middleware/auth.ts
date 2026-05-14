@@ -8,7 +8,7 @@ export const auth = (req: any, res: Response, next: NextFunction) => {
       return res.status(401).json({ message: 'No token, authorization denied' });
     }
 
-    const decodedData: any = jwt.verify(token, process.env.JWT_SECRET as string);
+    const decodedData: any = jwt.verify(token, (process.env.JWT_SECRET || 'super_secret_jwt_key_for_dubai_safari') as string);
     req.userId = decodedData?.id;
     req.userRole = decodedData?.role;
 

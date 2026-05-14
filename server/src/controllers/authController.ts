@@ -27,7 +27,7 @@ export const register = async (req: Request, res: Response) => {
 
     const token = jwt.sign(
       { id: user._id, role: user.role },
-      process.env.JWT_SECRET as string,
+      (process.env.JWT_SECRET || 'super_secret_jwt_key_for_dubai_safari') as string,
       { expiresIn: '1d' }
     );
 
@@ -69,7 +69,7 @@ export const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign(
       { id: user._id, role: user.role },
-      process.env.JWT_SECRET as string,
+      (process.env.JWT_SECRET || 'super_secret_jwt_key_for_dubai_safari') as string,
       { expiresIn: '1d' }
     );
 

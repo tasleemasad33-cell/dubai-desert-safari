@@ -28,7 +28,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // MongoDB Connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/dubai-desert-adventures';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://tasleemasad33:Asad5762%40@cluster0.cgidqcu.mongodb.net/dubai-desert-adventures?retryWrites=true&w=majority&appName=Cluster0';
 console.log('--- DB CONNECTION ATTEMPT ---');
 console.log('MONGODB_URI exists:', !!process.env.MONGODB_URI);
 if (process.env.MONGODB_URI) {
