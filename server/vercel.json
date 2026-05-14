@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "env": {
+    "MONGODB_URI": "mongodb+srv://tasleemasad33:Asad5762%40@cluster0.cgidqcu.mongodb.net/dubai-desert-adventures?retryWrites=true&w=majority&appName=Cluster0",
+    "JWT_SECRET": "super_secret_jwt_key_for_dubai_safari"
+  },
   "builds": [
     {
       "src": "src/index.ts",
