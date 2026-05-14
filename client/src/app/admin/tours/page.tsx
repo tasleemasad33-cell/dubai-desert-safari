@@ -45,7 +45,7 @@ const AdminTours = () => {
     if (!confirm('Are you sure you want to delete this tour?')) return;
     
     try {
-      const response = await fetch(`http://localhost:5000/api/tours/${id}`, {
+      const response = await fetch(`https://server-one-alpha-61.vercel.app/api/tours/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

@@ -40,7 +40,7 @@ export default function EditTour() {
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/tours`);
+        const response = await fetch(`https://server-one-alpha-61.vercel.app/api/tours`);
         const data = await response.json();
         const tour = data.find((t: any) => t._id === id);
         if (tour) {
@@ -80,7 +80,7 @@ export default function EditTour() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(`http://localhost:5000/api/tours/${id}`, {
+      const response = await fetch(`https://server-one-alpha-61.vercel.app/api/tours/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

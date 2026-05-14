@@ -38,7 +38,7 @@ const SingleTourPage = () => {
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/tours/${slug}`);
+        const response = await fetch(`https://server-one-alpha-61.vercel.app/api/tours/${slug}`);
         const data = await response.json();
         if (response.ok) {
           setTour(data);

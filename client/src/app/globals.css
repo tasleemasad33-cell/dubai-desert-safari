@@ -46,6 +46,7 @@
     font-family: var(--font-serif);
     font-weight: 700;
     letter-spacing: -0.02em;
+    padding-right: 0.05em; /* Fix for character clipping on some fonts */
   }
 }
 
@@ -70,6 +71,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
+    padding-right: 0.1em;
+    margin-right: -0.1em;
   }
 
   .gold-gradient-bg {

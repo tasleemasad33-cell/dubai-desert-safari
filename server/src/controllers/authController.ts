@@ -13,10 +13,16 @@ export const register = async (req: Request, res: Response) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
+    
+    // Check if email should be admin
+    const adminEmails = ['admin@dubaisafari.com', 'admin@dubaidesert.com'];
+    const role = adminEmails.includes(email) ? 'admin' : 'user';
+
     const user = await User.create({
       name,
       email,
       password: hashedPassword,
+      role,
     });
 
     const token = jwt.sign(
@@ -35,6 +41,7 @@ export const register = async (req: Request, res: Response) => {
       },
     });
   } catch (error) {
+    console.error('Registration error:', error);
     res.status(500).json({ message: 'Something went wrong', error });
   }
 };
@@ -53,6 +60,13 @@ export const login = async (req: Request, res: Response) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
+    // Auto-promote specific emails to admin role if they aren't already
+    const adminEmails = ['admin@dubaisafari.com', 'admin@dubaidesert.com'];
+    if (adminEmails.includes(user.email) && user.role !== 'admin') {
+      user.role = 'admin';
+      await user.save();
+    }
+
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.JWT_SECRET as string,
@@ -69,6 +83,7 @@ export const login = async (req: Request, res: Response) => {
       },
     });
   } catch (error) {
+    console.error('Registration error:', error);
     res.status(500).json({ message: 'Something went wrong', error });
   }
 };
@@ -78,6 +93,7 @@ export const getMe = async (req: any, res: Response) => {
     const user = await User.findById(req.userId).select('-password');
     res.status(200).json(user);
   } catch (error) {
+    console.error('Registration error:', error);
     res.status(500).json({ message: 'Something went wrong', error });
   }
 };

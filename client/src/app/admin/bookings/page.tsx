@@ -48,7 +48,7 @@ const AdminBookings = () => {
 
   const handleStatusChange = async (id: string, status: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}/status`, {
+      const response = await fetch(`https://server-one-alpha-61.vercel.app/api/bookings/${id}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const AdminBookings = () => {
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this booking?')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const response = await fetch(`https://server-one-alpha-61.vercel.app/api/bookings/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

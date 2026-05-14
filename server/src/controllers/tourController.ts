@@ -7,6 +7,7 @@ export const getAllTours = async (req: Request, res: Response) => {
     const tours = await Tour.find(filter).sort({ createdAt: -1 });
     res.status(200).json(tours);
   } catch (error) {
+    console.error('Error fetching tours:', error);
     res.status(500).json({ message: 'Error fetching tours', error });
   }
 };
@@ -17,6 +18,7 @@ export const getTourBySlug = async (req: Request, res: Response) => {
     if (!tour) return res.status(404).json({ message: 'Tour not found' });
     res.status(200).json(tour);
   } catch (error) {
+    console.error('Error fetching tour:', error);
     res.status(500).json({ message: 'Error fetching tour', error });
   }
 };
